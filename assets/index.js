@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const symbols = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    const symbols = ['👾', '🎰', '🎯', '🎳', '🏸', '♦️', '🎲', '🏏'];
     const totalCards = symbols.length * 2;
 
     const shuffledSymbols = shuffleArray(symbols.concat(symbols));
@@ -34,10 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const [card1, card2] = flippedCards;
         const symbol1 = card1.querySelector('.symbol').textContent;
         const symbol2 = card2.querySelector('.symbol').textContent;
-
+    
         if (symbol1 === symbol2) {
             // Match found
-            flippedCards = [];
+            setTimeout(() => {
+                card1.style.display = 'none';
+                card2.style.display = 'none';
+                flippedCards = [];
+            }, 500);
         } else {
             // No match, flip the cards back
             card1.classList.remove('flipped');
@@ -45,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             flippedCards = [];
         }
     }
+    
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {

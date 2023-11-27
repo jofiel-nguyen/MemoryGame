@@ -1,10 +1,15 @@
+/* Common styles for all devices */
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #bbabab;
+}
+
+h1 {
+    margin: 0;
 }
 
 #game-board {
@@ -34,3 +39,103 @@ body {
     visibility: visible;
 }
 
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+footer img {
+    margin-right: 15px;
+}
+
+/* Media query for iPhone 5 */
+@media only screen and (max-width: 320px) {
+    body {
+        background-color: #bbabab; /* Change background color for iPhone 5 */
+    }
+
+    #game-board {
+        display: grid;
+        grid-template-columns: repeat(4, 100px);
+        gap: 5px;
+    }
+    h1 {
+        margin: 0;
+        font-size: 24px;
+        
+    }
+    .card {
+        width: 40px;
+        height: 40px;
+        background-color: #5e0505;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    
+    .card .symbol {
+        visibility: hidden;
+    }
+    
+    .card.flipped .symbol {
+        visibility: visible;
+    }
+}
+/* Media query for larger smartphones and potential future devices */
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+    body {
+        background-color: #dcdcdc; /* Change background color for larger smartphones */
+    }
+    #game-board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        gap: 5px;
+    }
+    h1 {
+        margin: 0;
+       
+        
+    }
+    .card {
+        width: 50px;
+        height: 50px;
+        background-color: #5e0505;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    
+    .card .symbol {
+        visibility: hidden;
+    }
+    
+    .card.flipped .symbol {
+        visibility: visible;
+    }
+}
+/* Media query for tablets */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        background-color: #a1a1a1; /* Change background color for tablets */
+    }
+}
+
+/* Media query for laptops */
+@media only screen and (min-width: 1025px) {
+    body {
+        background-color: #888; /* Change background color for laptops */
+    }
+}
