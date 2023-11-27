@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < totalCards; i++) {
         const card = document.createElement('div');
         card.classList.add('card');
-        
+
         const symbol = document.createElement('span');
         symbol.classList.add('symbol');
         symbol.textContent = shuffledSymbols[i];
-        
+
         card.appendChild(symbol);
         card.addEventListener('click', flipCard);
         gameBoard.appendChild(card);
@@ -34,13 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const [card1, card2] = flippedCards;
         const symbol1 = card1.querySelector('.symbol').textContent;
         const symbol2 = card2.querySelector('.symbol').textContent;
-    
+
         if (symbol1 === symbol2) {
             // Match found
             setTimeout(() => {
                 card1.style.display = 'none';
                 card2.style.display = 'none';
                 flippedCards = [];
+                checkWin(); // Check if all cards are matched
             }, 500);
         } else {
             // No match, flip the cards back
@@ -49,7 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
             flippedCards = [];
         }
     }
-    
+
+    function checkWin() {
+        const remainingCards = document.querySelectorAll('.card:not([style="display: none;"])');
+        if (remainingCards.length === 0) {
+            // All cards are matched, display "You win"
+            alert('You win!');
+        }
+    }
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
