@@ -2,6 +2,11 @@
 
 Memory Game is a web-based game where players can test their memory by matching pairs of cards. It is a simple and entertaining game suitable for all ages.
 
+## Screenshots
+
+[![Memory Game](.//assets/deployed.png)](https://jofiel-nguyen.github.io/MemoryGame/)
+
+
 ## Features
 
 - Grid of cards with symbols that players can flip.
